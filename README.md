@@ -18,6 +18,12 @@ Planar geometry workbench for polygon creation, triangulation, Delaunay/Voronoi 
 - Dev-only terrain app: `src/terrain_driver.cc` exposes the supported base TIN analysis through a versioned JSON contract.
 - Build orchestration lives in `Makefile`; packaged outputs land in `dist/release/` and `dist/interview/`.
 
+## Development Provenance
+
+Coding-agent use first entered the repository in build tooling through PR #1. At `9f3ff67`, however—the last checkpoint before agent-authored C++ entered the tree—all 2,383 tracked C++ lines across 33 `.cc` and `.h` files were Harrison Wolf’s. Written from a Bash terminal using Vim and Make, that C++ foundation covered points, lines, triangles, polygons, collision and containment, an original ear-clipping triangulator, random polygon generation, CLI drivers, and early visualization support.
+
+PR #2 then began the agent-authored C++ phase. Harrison later directed and reviewed coding-agent work that substantially revised the ear clipper and implemented the current Bowyer-Watson Delaunay and Voronoi layers, the custom TDD harness and much of its suite coverage, browser viewers, benchmark tooling, and terrain applications. The current repository is therefore mixed-authorship: a substantial hand-written C++ foundation followed by substantial agent-assisted expansion. The boundary is retained in the public history: `9f3ff67` records the last all-Harrison C++ checkpoint, while `728069f` explicitly records the Codex implementation of the Delaunay and Voronoi layers.
+
 ## Build And Run
 
 - `make development-normal`: optimized dev build in `build/development/normal/`, including the development-only Delaunay, portfolio-export, benchmark, and terrain drivers.
